@@ -2,9 +2,18 @@
 
 .head{
   font-weight: bold;
+  width: 35%;
   text-align: center;
   color: $light_green;
-  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  margin-left: 280px;
+  &__new {
+    color: rgb(219, 56, 83);
+  }
+  &__left{
+    
+  }
 }
 
 .products--head{
@@ -77,13 +86,15 @@
       height: 321px;
       width: 780px;
       margin: 0 auto;
+      
       &--head{
-        overflow-x: scroll;
+        
       }
       &--lists{
       width: 780px;
       margin: 26px auto;
       display: flex;
+      overflow-x: scroll;
         .product__images {
           margin-left: 45px;
         }

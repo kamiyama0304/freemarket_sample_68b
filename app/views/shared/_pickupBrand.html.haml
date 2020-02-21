@@ -1,11 +1,13 @@
 .wrapper
   .containerBrand
     %h2.containerBrand__title
-      ピックアプカテゴリー
+      ピックアップカテゴリー
     .containerBrand__product
       .containerBrand__product--head
         = link_to "#", class: "products--head" do
-          %h3.head 新規投稿商品
+          %h3.head
+            %span.head__new new!
+            .head__left ⇦ - - -新規投稿商品- - - ⇨ old
       .containerBrand__product--lists
         .containerBrand__product--lists__list
         - @brandProducts.each do |product|
