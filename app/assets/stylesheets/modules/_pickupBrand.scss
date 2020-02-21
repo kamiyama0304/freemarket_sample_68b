@@ -71,15 +71,19 @@
     font-weight: bold;
   }
     &__product{
-
+      height: 321px;
+      width: 780px;
+      margin: 0 auto;
       &--head{
-        
+        overflow-x: scroll;
       }
       &--lists{
       width: 780px;
       margin: 26px auto;
       display: flex;
-      justify-content: space-around;
+        .product__images {
+          margin-left: 45px;
+        }
       &__list{
         width: 220px;
         display: inline-block;
@@ -87,8 +91,9 @@
           background-color: $white;
           color: $black;
           padding: 16px;
-          &__details{
+          &__details__menu{
             font-size: 16px;
+            text-align: left;
           }
         }
       }

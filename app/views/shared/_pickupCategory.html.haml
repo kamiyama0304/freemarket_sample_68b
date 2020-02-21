@@ -7,7 +7,7 @@
         = link_to "#", class: "products--head" do
           %h3.head 新規投稿商品
       .containerCategory__product--lists
-        - @products.each do |product|
+        - @newProducts.each do |product|
           = link_to "#", class: "listBtn" do
             %figure.product__images
               = image_tag product.images[0][:name], alt: "image_url",size: "200x150", class:"new-img"
