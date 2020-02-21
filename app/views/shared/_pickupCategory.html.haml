@@ -12,7 +12,8 @@
         - @products.each do |product|
           = link_to "#", class: "listBtn" do
             %figure.product__images
-              = product.images.name.inspect
+              = image_tag product.images[0][:name], alt: "image_url",size: "220x150"
+              -# = product.images[0].name
               -# = image_tag product.images[0].url , alt: "商品画像", class: "product__images--image"
             .containerCategory__product--lists__list--body
               %h3.product--name
