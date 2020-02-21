@@ -1,11 +1,11 @@
 .wrapper
   .containerCategory
     %h2.containerCategory__title
-      ピックアップカテゴリー
+      商品一覧
     .containerCategory__product
       .containerCategory__product--head
         = link_to "#", class: "products--head" do
-          %h3.head 新規投稿商品
+          %h3.head 
       .containerCategory__product--lists
         - @newProducts.each do |product|
           = link_to "#", class: "listBtn" do

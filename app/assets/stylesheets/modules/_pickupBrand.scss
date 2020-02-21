@@ -4,9 +4,11 @@
   font-weight: bold;
   text-align: center;
   color: $light_green;
+  margin-left: 40px;
 }
 
 .products--head{
+  margin-left: 10px;
   text-decoration: none;
 }
 
@@ -69,6 +71,7 @@
     font-size: 28px;
     line-height: 1.4;
     font-weight: bold;
+    margin-left: 50px;
   }
     &__product{
       height: 321px;
