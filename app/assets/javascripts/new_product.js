@@ -171,6 +171,41 @@ window.addEventListener("load", function(){
       }
     });
 
+    $('#parent').on('change',function(){
+      $('#child').html('');
+
+      var child = parent.children
+      $('#child').append(child);
+
+      var html = 
+        
+
+
+      return html;
+
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+    })
+    %ul.firstMenu__parents
+    - @parent.each do |parent|
+      %li.firstMenu__parents__parent
+        = link_to "#{parent.name}", "#", class: "item-link" 
+
+        %ul.secondMenu__children
+          - parent.children.each do |child|
+            %li.secondMenu__children__child
+              = link_to "#{child.name}", "#", class: "item-link" 
+
+              %ul.thirdMenu__grandchildren
+                - child.children.each do |grandchildren|
+                  %li.thirdMenu__grandchildren__grandchild
+                    = link_to "#{grandchildren.name}", "#", class: "item-link" 
 
   });
 });
