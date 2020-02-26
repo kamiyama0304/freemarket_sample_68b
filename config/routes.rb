@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "home#index"
-
+  get "products/edit"
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
