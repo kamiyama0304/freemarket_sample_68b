@@ -1,5 +1,6 @@
 window.addEventListener("load", function(){
   $(function(){
+    //画像フラッシュメッセージ
     $( '.sell-upload-drop-file' ).on('click', function(){
       let image = $(this).val();
       if(image == 0){
@@ -20,14 +21,7 @@ window.addEventListener("load", function(){
         $('.no-image1').text('');
       };
     });
-  })
-
-
-
-
-
-
-
+    //商品名フラッシュメッセージ
     $( '.input-default' ).on('click', function(){
       let name = $(this).val();
       if(name == 0){
@@ -49,7 +43,7 @@ window.addEventListener("load", function(){
       };
     });
   })
-
+  //商品説明フラッシュメッセージ
   $('.textarea-default').on('click',function(){
     let description = $(this).val();
     if(description == 0){
@@ -70,6 +64,51 @@ window.addEventListener("load", function(){
       $('.no-product2').text('')
     }
   });
+  //カテゴリーフラッシュメッセージ
+  $('#parent').on('click',function(){
+    let category_id = $(this).val();
+    if(category_id == 0){
+      $('#parent').css('border-color','red')
+      $('.no-product10').text('入力してください')
+    }else{
+      $('sell-up-load-head').css('border-color','')
+      $('.no-product10').text('')
+    }
+  });
+  $('#parent').on('change',function(){
+    let category_id = $(this).val();
+    if(category_id == 0){
+      $('#parent').css('border-color','red')
+      $('.no-product10').text('入力してください')
+    }else{
+      $('#parent').css('border-color','')
+      $('.no-product10').text('')
+    }
+  });
+//発送元の地域フラッシュメッセージ
+  $('#product_prefecture_id').on('click',function(){
+    let prefecture_id = $(this).val();
+    if(prefecture_id == 0){
+      $('#product_prefecture_id').css('border-color','red')
+      $('.no-product11').text('選択してください')
+    }else{
+      $('#product_prefecture_id').css('border-color','')
+      $('.no-product11').text('')
+    }
+  });
+  $('#product_prefecture_id').on('change',function(){
+    let prefecture_id = $(this).val();
+    if(prefecture_id == 0){
+      $('#product_prefecture_id').css('border-color','red')
+      $('.no-product11').text('選択してください')
+    }else{
+      $('#product_prefecture_id').css('border-color','')
+      $('.no-product11').text('')
+    }
+  });
+
+
+
   $('.default02').on('click',function(){
     let status = $(this).val();
     if(status == 0){

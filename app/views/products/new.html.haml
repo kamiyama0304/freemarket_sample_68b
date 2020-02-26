@@ -21,10 +21,6 @@
                 %label
                   .new-listing__sell-upload-drop-box
                     = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"",style: "display:none", class: "sell-upload-drop-file", id:"img-file"
-                    -# %pre.visible-pc
-                    -#   :preserve
-                    -#     ドラッグアンドドロップ
-                    -#     またはクリックしてファイルをアップロード
                     %i.fa.fa-camera
                   
         .new-listing__no-image.no-image1
@@ -68,8 +64,8 @@
                 %select#child
               .grand_child
                 = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
-              .new-listing__no-product
-                選択してください
+              .new-listing__no-product.no-product10
+                
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
               = f.label :ブランド
@@ -105,6 +101,8 @@
               .new-listing__no-product.no-product5
                   
 
+
+
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
               発送元の地域
@@ -112,9 +110,9 @@
                 必須
             .new-listing__select-wrap
               %i.icon-arrow-bottom
-                = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, prompt: "---")
-              .new-listing__no-product
-                選択してください
+                = f.collection_select(:prefecture_id, Prefecture.all, :id , :name, prompt: "---")
+              .new-listing__no-product.no-product11
+                
           
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
@@ -124,7 +122,10 @@
             .new-listing__select-wrap
               = f.select :ship_day, Product.ship_days_i18n.invert, {}, class: "select"
               .new-listing__no-product.no-product7
-                  
+
+
+
+
       .new-listing__settlement
         %p.tk-value
           価格（¥300~9,999,999)
