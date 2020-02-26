@@ -1,5 +1,33 @@
 window.addEventListener("load", function(){
   $(function(){
+    $( '.sell-upload-drop-file' ).on('click', function(){
+      let image = $(this).val();
+      if(image == 0){
+        $('.sell-upload-drop-file').css('border-color','red');
+        $('.no-image1').text('入力してください');
+      }else{
+        $('.sell-upload-drop-file').css('border-color','');
+        $('.no-image1').text('');
+      };
+    });
+    $( '.sell-upload-drop-file' ).on('change',function(){
+      let image = $(this).val();
+      if(image == 0){
+        $('.sell-upload-drop-file').css('border-color','red');
+        $('.no-image1').text('入力してください');
+      }else{
+        $('.sell-upload-drop-file').css('border-color','');
+        $('.no-image1').text('');
+      };
+    });
+  })
+
+
+
+
+
+
+
     $( '.input-default' ).on('click', function(){
       let name = $(this).val();
       if(name == 0){
@@ -152,7 +180,7 @@ window.addEventListener("load", function(){
           let html= `<div class='item-image' data-image="${file.name}">
                       <div class=' item-image__content'>
                         <div class='item-image__content--icon'>
-                          <img src=${src} width="114" height="80" >
+                          <img src=${src} width="120" height="100" >
                         </div>
                       </div>
                       <div class='item-image__operetion'>
