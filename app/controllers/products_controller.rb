@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.includes(:image).order('created_at DESC')
   end
   
   def new
@@ -10,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Prduct.new(product_params)
+    @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
     else
@@ -20,6 +19,7 @@ class ProductsController < ApplicationController
 
   def show
   end
+  
 
   def edit
   end
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price, :condition, :status, :brand, :send_price, :ship_day, images_attributes: [:name, :_destroy, :id]).merge(user_id: current_user_id, category_id: params[:category][:id], prefecture_id: params[:prefecture][:id])
+    params.require(:product).permit(:name, :description, :price, :condition, :brand, :send_price, :ship_day, images_attributes: [:name]).merge(user_id: current_user.id, category_id: 1, prefecture_id: params[:product][:prefecture_id], status: "0")
   end
 
 end
