@@ -104,3 +104,10 @@
 
 = render 'shared/appBanner'
 = render 'shared/displayBtn'
+= link_to "#", class: "links__category--related" do
+        レディースをもっと見る
+    - if current_user == @product_id
+      = link_to "商品を編集する", "edit_product_path", class: "edit-btn"
+      = link_to "商品を削除する", "#", class: "delete-btn"
+    - else
+      = link_to "購入", "#", class: "buy-btn"
