@@ -35,11 +35,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
     @product = Product.find(params[:id])
-    @image.delete
-    @product.delete
-    redirect_to user_path
+    @product.destroy
+    redirect_to root_path
   end
 
   def mid_category
@@ -58,7 +56,7 @@ class ProductsController < ApplicationController
       .permit(:name, :description, :price, :condition, :brand, :send_price,
               :ship_day, images_attributes: [:name])
       .merge(user_id: current_user.id, category_id: params[:product][:category_id],
-             prefecture_id: params[:product][:prefecture_id], status: 0)
+              prefecture_id: params[:product][:prefecture_id], status: 0)
   end
 
   def set_product
