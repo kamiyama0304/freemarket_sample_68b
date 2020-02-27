@@ -25,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new_address
   end
-
+  
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
@@ -62,14 +62,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
+  
+  
+  
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys:
                               [:nickname,  :birthday, :first_name,
-                               :last_name, :first_name_kana, :last_name_kana])
+                                :last_name, :first_name_kana, :last_name_kana])
   end
 
   def address_params
@@ -77,6 +79,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                     :ship_first_name_kana, :postal_code, :prefecture,
                                     :prefecture_id, :municipality, :block_number, :apartment_name,
                                     :phone_number)
+    
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -89,7 +92,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    users_root_path
+  end
 end
