@@ -21,12 +21,15 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-
+  
   def edit
+    @categories = Category.where(ancestry: nil)
     @product = Product.find(params[:id])
+    
   end
 
   def update
+    @categories = Category.where(ancestry: nil)
     if @product.update(product_params)
       redirect_to product_path
     else
@@ -62,6 +65,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
+    # binding.pry
     @product = Product.find(params[:id])
   end
 
