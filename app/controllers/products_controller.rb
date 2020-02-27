@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
   end
-  
+
   def new
     @product = Product.new
     @product.images.new
@@ -19,11 +19,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    
     @product = Product.find(params[:id])
-    
   end
-  
 
   def edit
     @product = Product.find(params[:id])
@@ -38,6 +35,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @image = Image.find(params[:id])
+    @product = Product.find(params[:id])
+    @image.delete
+    @product.delete
+    redirect_to user_path
   end
 
   private
@@ -47,5 +49,9 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def destroy_params
+    params.require(:product).permit(:name, :description, :price, :condition, :brand, :send_price, :ship_day, images_attributes: [:name, :src, :_destroy, :id])
   end
 end
