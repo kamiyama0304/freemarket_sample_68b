@@ -5,7 +5,7 @@ window.addEventListener("load", function(){
       let image = $(this).val();
       if(image == 0){
         $('.sell-upload-drop-file').css('border-color','red');
-        $('.no-image1').text('入力してください');
+        $('.no-image1').text('選択してください');
       }else{
         $('.sell-upload-drop-file').css('border-color','');
         $('.no-image1').text('');
@@ -15,7 +15,7 @@ window.addEventListener("load", function(){
       let image = $(this).val();
       if(image == 0){
         $('.sell-upload-drop-file').css('border-color','red');
-        $('.no-image1').text('入力してください');
+        $('.no-image1').text('選択してください');
       }else{
         $('.sell-upload-drop-file').css('border-color','');
         $('.no-image1').text('');

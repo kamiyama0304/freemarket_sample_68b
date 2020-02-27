@@ -1,3 +1,4 @@
+
 $(function(){
   $('#product_price').on('change', function(){
     let tax = $('#product_price').val();

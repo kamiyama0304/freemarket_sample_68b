@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
   end
 
   def number?(str)
-     (str =~ /\A[0~9]+\z/) ? true : false
+    (str =~ /\A[0~9]+\z/) ? true : false
   end
 
   def params_int(model_params)

@@ -11,10 +11,7 @@
               必須
         .new-listing__p
           最大10枚までアップロードできます
-
-          
         #image-box-1
-          
           .item-box.item-num-0#image-box__container
             = f.fields_for :images do |i|
               .new-listing__sell-upload-items-container
@@ -22,13 +19,7 @@
                   .new-listing__sell-upload-drop-box
                     = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"",style: "display:none", class: "sell-upload-drop-file", id:"img-file"
                     %i.fa.fa-camera
-                  
         .new-listing__no-image.no-image1
-          
-
-                
-
-
 
       .new-listing__sell-content
         .new-listing__form-group
@@ -84,7 +75,6 @@
                 = f.select :condition, Product.conditions_i18n.invert, {}, class: "select-default"
               .new-listing__no-product.no-product4
                   
-
       .new-listing__content-show2
         %h3.show-sub-head
           配送について
