@@ -27,6 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def create_address
+    # binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
@@ -36,7 +37,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
-    redirect_to root_path
+    # redirect_to root_path
+    # binding.pry
   end
 
   # GET /resource/edit
