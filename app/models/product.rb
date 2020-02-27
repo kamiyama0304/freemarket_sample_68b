@@ -11,6 +11,9 @@ class Product < ApplicationRecord
   enum send_price:  { listing_person: 0, buyer_burden: 1 }
   enum ship_day:    { early_ship: 0, mid_ship: 1, late_ship: 2 }
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+
   with_options presence: true do
     validates :name
     validates :description
@@ -21,5 +24,6 @@ class Product < ApplicationRecord
     validates :ship_day
     validates :prefecture_id
     validates :category_id
+
   end
 end
