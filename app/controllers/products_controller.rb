@@ -29,7 +29,9 @@ class ProductsController < ApplicationController
   end
 
   def update
+    
     @categories = Category.where(ancestry: nil)
+    
     if @product.update(product_params)
       redirect_to product_path
     else

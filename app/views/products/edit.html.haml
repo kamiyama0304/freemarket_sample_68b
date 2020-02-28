@@ -21,13 +21,13 @@
                   .new-listing__sell-upload-drop-box
                     = i.file_field :name, value:"", style: "display:none", class: "sell-upload-drop-file"
                     %i.fa.fa-camera
-                      -# - if @product.persisted?
-                      -#   = image.check_box :_destroy, data:{ index:  }, class: 'hidden-destroy'
-                      -#   - if @product.persisted?
-                      -#     .dataIndex
-                      -#       = @product.image.count
-                      -#       = i.file_field :src, name: "product[images_attributes][#{@product.image.count}][src]",class: "#" 
-                              
+                      - if @product.persisted?
+                        = i.check_box :_destroy, data:{ index: i.index  }, class: 'hidden-destroy'
+                        - if @product.persisted?
+                          .dataIndex
+                            = @product.images.count
+                            = i.file_field :src, name: "product[images_attributes][#{@product.images.count}][src]",class: "#" 
+                      = f.submit class: "Btn"
         .new-listing__no-image
           画像がありません
       .new-listing__sell-content
