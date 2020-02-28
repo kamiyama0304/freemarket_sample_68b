@@ -8,9 +8,4 @@ class HomeController < ApplicationController
   def new
     
   end
-
-  # private
-  # def user_params
-  #   params.require(:users)
-  # end
 end
