@@ -9,8 +9,25 @@
       .exhibiting__second--right
         = link_to(sold_user_url(current_user), class: "exhibiting__second--right__btn") do
           売却済み
-    .exhibiting__third
-      出品中の商品がありません
+    - if products_url == nil
+      .exhibiting__third
+        出品中の商品がありません
+    - else
+      .containerBrand__product--lists
+        - current_user.products.where(status: 0).each do |product|
+          = link_to product_path(product), class: "listBtn" do
+            %figure.product__images
+              = image_tag product.images[0].name.url, alt: "image_url",size: "200x150", class:"new-img"
+            .containerBrand__product--lists__list--body
+              %h3.product--name
+                = product.name
+              .containerBrand__product--lists__list--body__details
+                %ul.details__menu
+                  %li
+                    = product.price
+                    円
+                  %li ★
+              %p.taxIncluded （税込）
     .exhibiting__forth
       = link_to("#", class: "left-btn") do
         %i.left-btn.fa.fa-chevron-left
