@@ -9,25 +9,25 @@
       .bought__second--right
         = link_to(bought_user_url(current_user), class: "bought__second--right__btn") do
           過去の取引
-      - if products_url == nil
-        .bought__third
-          過去に取引した商品がありません
-      - else
-        .containerBrand__product--lists
-          - current_user.contracts.each do |contract|
-            = link_to product_path(contract.product), class: "listBtn" do
-              %figure.product__images
-                = image_tag contract.product.images[0].name.url, alt: "image_url",size: "200x150", class:"new-img"
-              .containerBrand__product--lists__list--body
-                %h3.product--name
-                  = contract.product.name
-                .containerBrand__product--lists__list--body__details
-                  %ul.details__menu
-                    %li
-                      = contract.product.price
-                      円
-                    %li ★
-                %p.taxIncluded （税込）
+    - if products_url == nil
+      .bought__third
+        過去に取引した商品がありません
+    - else
+      .containerBrand__product--lists
+        - current_user.contracts.each do |contract|
+          = link_to product_path(contract.product), class: "listBtn" do
+            %figure.product__images
+              = image_tag contract.product.images[0].name.url, alt: "image_url",size: "200x150", class:"new-img"
+            .containerBrand__product--lists__list--body
+              %h3.product--name
+                = contract.product.name
+              .containerBrand__product--lists__list--body__details
+                %ul.details__menu
+                  %li
+                    = contract.product.price
+                    円
+                  %li ★
+              %p.taxIncluded （税込）
     .bought__forth
       = link_to("#", class: "left-btn") do
         %i.left-btn.fa.fa-chevron-left
