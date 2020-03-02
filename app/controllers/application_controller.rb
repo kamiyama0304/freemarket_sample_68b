@@ -26,7 +26,4 @@ class ApplicationController < ActionController::Base
     @parent = Category.where(ancestry: nil)
   end
   
-  def set_product
-    @products = Product.all
-  end
 end

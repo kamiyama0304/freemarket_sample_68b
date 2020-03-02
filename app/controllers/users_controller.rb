@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_product
   def index
   end
 
@@ -14,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def bought
+    
   end
 
   def sold

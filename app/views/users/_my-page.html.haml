@@ -18,8 +18,10 @@
             取引中
           %a.buy__second--right.right-man
             過去の取引
-        .buy__third
-          取引中の商品がありません
+        - if products_url == nil    
+          .buy__third
+            取引中の商品がありません
+        - else
           .containerBrand__product--lists
             - current_user.products.where(status: 0).each do |product|
               = link_to product_path(product), class: "listBtn" do

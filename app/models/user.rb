@@ -2,9 +2,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :address, dependent: :delete
-  has_many :products, dependent: :delete_all
-  has_one :card,    dependent: :delete
+  has_one  :address,   dependent: :delete
+  has_many :products,  dependent: :delete_all
+  has_one  :card,      dependent: :delete
+  has_many :contracts, foreign_key: "buyer_id", dependent: :delete_all
 
   with_options presence: true do
     validates :nickname
