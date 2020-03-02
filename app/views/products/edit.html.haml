@@ -12,22 +12,19 @@
         .new-listing__p
           最大10枚までアップロードできます
 
-        #image-box-1
-          .item-box.item-num-0#image-box__container
-            = f.fields_for :images do |i|
-              .new-listing__sell-upload-items-container
+        #edit-image-box-1
+          .item-box.item-num-0#edit-image-box__container
+            .new-listing__sell-upload-items-container
+              = f.fields_for :image do |i|
                 %label
-                  
                   .new-listing__sell-upload-drop-box
-                    = i.file_field :name, value:"", style: "display:none", class: "sell-upload-drop-file"
-                    %i.fa.fa-camera
-                      - if @product.persisted?
-                        = i.check_box :_destroy, data:{ index: i.index  }, class: 'hidden-destroy'
-                        - if @product.persisted?
-                          .dataIndex
-                            = @product.images.count
-                            = i.file_field :src, name: "product[images_attributes][#{@product.images.count}][src]",class: "#" 
-                      = f.submit class: "Btn"
+                    - @product.images.each do |image|
+                      = image_tag image.name.url
+                      = i.file_field :name, value: "", class: "sell-upload-drop-file"
+                        %i.fa.fa-camera
+                          - if @product.persisted?
+                          = i.check_box :_destroy, data:{ index: i.index  }, class: 'hidden-destroy'
+
         .new-listing__no-image
           画像がありません
       .new-listing__sell-content
@@ -36,15 +33,15 @@
             = f.label :name,"商品名"
             %span.new-listing__form-require
               必須
-          = f.text_field :name ,class: "input-default" ,placeholder: "商品名（必須 40文字まで)"
-        .new-listing__no-product.no-product-name
+          = f.text_field :name ,class: "edit-input-default" ,placeholder: "商品名（必須 40文字まで)"
+        .new-listing__no-product.edit-no-product-name
         .new-listing__form-group
           .new-listing__sell-upload-head
             = f.label :description, "商品の説明"
             %span.new-listing__form-require
               必須
-          = f.text_area :description, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-        .new-listing__no-product.no-product2
+          = f.text_area :description, class: "edit-textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .new-listing__no-product.edit-no-product2
 
       .new-listing__content-show
         %h3.show-sub-head
@@ -132,7 +129,7 @@
               ¥
             .new-listing__enter-price
               .new-listing__enter-price2
-                = f.number_field :price, placeholder: "0", class: "tk-price"
+                = f.number_field :price, placeholder: "0", class: "edit-tk-price"
                 .new-listing__no-product.no-product2
 
           .new-listing__commission

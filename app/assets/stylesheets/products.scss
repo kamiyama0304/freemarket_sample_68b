@@ -131,17 +131,29 @@
     float: right;
     display: flex;
     align-items: center;
-    justify-content: center;
     input{
       touch-action: manipulation;
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: inherit;
-      display: none;
+    font-family: inherit;
+    font-size: small;
+    font-weight: inherit;
+    display: block;
+    width: 110px;
+    margin-top: 50px;
     }
+    *:focus {
+      outline: none;
+      }
     pre{
       text-align: center;
       font-size: 14px;
+      display: none;
+      width: 100px;
+    }
+    .fa {
+      display: none;
+    }
+    .fa.fa-camera::before {
+      display: none;
     }
   }
   &__no-image{

@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
   def edit
     @categories = Category.where(ancestry: nil)
     @product = Product.find(params[:id])
-    
   end
 
   def update
