@@ -35,7 +35,7 @@
         a:hover{
         }
         &--left{
-          width: 33%;
+          width: 50%;
           background: #fafafa;
           border-top: red solid;
         }
@@ -43,15 +43,8 @@
           color: rgba(73, 73, 73, 0.5);
           opacity: 0.6;
         }
-        &--center{
-          width: 34%;
-        }
-        &--center:hover{
-          color: rgba(73, 73, 73, 0.5);
-          opacity: 0.6;
-        }
         &--right{
-          width: 33%;
+          width: 50%;
         }
         &--right:hover{
           color: rgba(73, 73, 73, 0.5);

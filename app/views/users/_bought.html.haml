@@ -3,9 +3,6 @@
     .bought__first
       出品した商品
     .bought__second
-      .bought__second--left
-        = link_to(buy_user_url(current_user), class: "bought__second--left__btn") do
-          取引中
       .bought__second--right
         = link_to(bought_user_url(current_user), class: "bought__second--right__btn") do
           過去の取引
