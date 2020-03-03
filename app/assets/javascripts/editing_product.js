@@ -212,16 +212,15 @@ window.addEventListener("load", function(){
     }
     let file_index = [0,1,2,3,4,5,6,7,8,9];
 
-    $('#edit-image-box-1').on('change', '.sell-upload-drop-file', function(e) {
+    $('.new-listing__sell-upload-items-container').on('change', '.sell-upload-drop-file', function(e) {
       let file = e.target.files[0]
-      let file_url = window.URL.createObjectURL(file);
-      // 選択ボタンの削除
+      let file_url = window.URL.createObjectURL(file); 
       $('#product_image_name').remove()
-      $('image').remove()
+      $('delete-image').remove()
 
       if (file_index.length != 0){
         $('#delete-image').hide({passive: false});
-        $('#edit-image-box__container').before(buildFileField(file_index, file_url))
+        $('#delete-image').before(buildFileField(file_index, file_url))
         file_index.shift();
       }
     })
