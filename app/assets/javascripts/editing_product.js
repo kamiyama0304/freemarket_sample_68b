@@ -186,9 +186,7 @@ window.addEventListener("load", function(){
 
       if (index_box.length == 1) {
         html = `<div class='item-image'>
-                  <div class=' item-image__content'>
-                    <img src=${src} id="delete-image">
-                  </div>
+                  <img src=${src} id="delete-image">
                   <div class='item-image__operetion'>
                     <div class='item-image__operetion--delete' data-index="${index}">削除</div>
                   </div>
