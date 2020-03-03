@@ -215,13 +215,12 @@ window.addEventListener("load", function(){
     $('#edit-image-box-1').on('change', '.sell-upload-drop-file', function(e) {
       let file = e.target.files[0]
       let file_url = window.URL.createObjectURL(file);
-      // カスタムデータ属性の取得
-      let target_num = $(this).data('index');
-      $('#product_image_name2').remove()
-      $('#delete-image2').remove()
+      // 選択ボタンの削除
+      $('#product_image_name').remove()
+      $('image').remove()
 
       if (file_index.length != 0){
-        $('#delete-image').hide();
+        $('#delete-image').hide({passive: false});
         $('#edit-image-box__container').before(buildFileField(file_index, file_url))
         file_index.shift();
       }
