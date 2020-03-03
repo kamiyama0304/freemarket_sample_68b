@@ -18,19 +18,17 @@
             = f.fields_for :image do |i|
               = i.label :name do
                 .new-listing__sell-upload-drop-box
-                  -# 新規登録
-                  - @product.images.each_with_index do |image, num|
-                    = image_tag image.name.url, id: "delete-image"
-                    -# .item-image__operetion--delete
-                    -#   削除
-                    = i.file_field :name, value: "", class: "sell-upload-drop-file" do
-                      %i.fa.fa-camera
-                        -# 編集用
-                      - if @product.persisted?
-                        = i.check_box :_destroy, data:{ index: i.index  }, class: 'hidden-destroy'
-                        = i.file_field :name,  data:{ index: i.index },value: "", class: "sell-upload-drop-file"
-
-
+                  .item-image
+                    .item-image__content
+                      - @product.images.each_with_index do |image, num|
+                        = image_tag image.name.url, id: "delete-image"
+                        .item-image__operetion
+                          .item-image__operetion--delete{"data-index" => "${index}"} 削除
+                          = i.file_field :name, value: "", class: "sell-upload-drop-file" do
+                            %i.fa.fa-camera
+                            - if @product.persisted?
+                              = i.check_box :_destroy, data:{ index: i.index  }, class: 'hidden-destroy'
+                              = i.file_field :name,  data:{ index: i.index },value: "", class: "sell-upload-drop-file"
         .new-listing__no-image
           画像がありません
       .new-listing__sell-content

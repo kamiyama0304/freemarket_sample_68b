@@ -187,9 +187,7 @@ window.addEventListener("load", function(){
       if (index_box.length == 1) {
         html = `<div class='item-image'>
                   <div class=' item-image__content'>
-                    <div class='item-image__content--icon'>
-                      <img src=${src} width="114" height="80" >
-                    </div>
+                    <img src=${src} id="delete-image">
                   </div>
                   <div class='item-image__operetion'>
                     <div class='item-image__operetion--delete' data-index="${index}">削除</div>
@@ -199,9 +197,7 @@ window.addEventListener("load", function(){
       }else{
         html = `<div class='item-image'>
                   <div class=' item-image__content'>
-                    <div class='item-image__content--icon'>
-                      <img src=${src} width="114" height="80" >
-                    </div>
+                    <img src=${src} id="delete-image">
                   </div>
                   <div class='item-image__operetion'>
                     <div class='item-image__operetion--delete' data-index="${index}">削除</div>
@@ -225,24 +221,6 @@ window.addEventListener("load", function(){
         file_index.shift();
       }
     })
-
-    $('.new-listing__sell-upload-items-container').on('change', '.sell-upload-drop-box', function(e) {
-      let file = e.target.files[0]
-      let file_url = window.URL.createObjectURL(file);
-      $('#product_image_name').remove()
-      
-
-      if (file_index.length != 0){
-        $('.item-image').hide({passive: false});
-        $('.item-image').before(buildFileField(file_index, file_url))
-        file_index.shift();
-      }
-    })
-
-
-
-
-
 
     $('#edit-image-box-1').on('click', '.item-image__operetion--delete', function(){
       let delete_image_id = parseInt($(this).attr('data-index'))
