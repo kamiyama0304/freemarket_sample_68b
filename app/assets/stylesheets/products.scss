@@ -68,7 +68,7 @@
     line-height: 1.5;
   }
   
-  #image-box-1{
+  #edit-image-box-1{
     flex-wrap: wrap;
   }
 
@@ -81,7 +81,51 @@
     word-wrap: break-all;
     text-align: center;
     font-size: 30px;
-
+    margin-bottom: 30px;
+  }
+  #delete-image0 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image1 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image2 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image3 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image4 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image5 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image6 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image7 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image8 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image9 {
+    height: 80px;
+    width: 114px;
+  }
+  #delete-image10 {
+    height: 80px;
+    width: 114px;
   }
   .item-num-0{
     width: 620px;
@@ -123,6 +167,9 @@
   &__sell-upload-items-container{
     width: 100%;
     height: 100%;
+    display: flex;
+    
+    
   }
   &__sell-upload-drop-box{
     height: 100%;
@@ -130,31 +177,41 @@
     margin-left: 0;
     float: right;
     display: flex;
-    align-items: center;
-    input{
-      touch-action: manipulation;
-    font-family: inherit;
-    font-size: small;
-    font-weight: inherit;
-    display: block;
-    width: 110px;
-    margin-top: 50px;
-    }
-    *:focus {
-      outline: none;
+    flex-direction: column;
+    
+    &__sell-upload-drop-file {
+      height: 30px;
+      width: 300px;
+      input{
+        touch-action: manipulation;
+        font-family: inherit;
+        font-size: small;
+        font-weight: inherit;
+        display: block;
+        height: 30px;
+        width: 300px;
+        margin-top: 10px;
+        margin-bottom: 39px;
       }
-    pre{
-      text-align: center;
-      font-size: 14px;
-      display: none;
-      width: 100px;
+      *:focus {
+        outline: none;
+        }
+      // pre{
+      //   text-align: center;
+      //   font-size: 14px;
+      //   display: none;
+      //   width: 100px;
+      // }
+      // .fa {
+      //   display: none;
+      // }
+      // .fa.fa-camera::before {
+      //   display: none;
+      // }
     }
-    .fa {
-      display: none;
-    }
-    .fa.fa-camera::before {
-      display: none;
-    }
+  }
+  .js-file {
+    display: inline-block;
   }
   &__no-image{
     margin-top: 16px;

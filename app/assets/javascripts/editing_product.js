@@ -212,16 +212,22 @@ window.addEventListener("load", function(){
     }
     let file_index = [0,1,2,3,4,5,6,7,8,9];
 
-    $('#edit-image-box-1').on('change', '.sell-upload-drop-file', (e)=>{
+    $('#edit-image-box-1').on('change', '.sell-upload-drop-file', function(e) {
       let file = e.target.files[0]
       let file_url = window.URL.createObjectURL(file);
+      // カスタムデータ属性の取得
+      let target_num = $(this).data('index');
+      $('#product_image_name2').remove()
+      $('#delete-image2').remove()
 
       if (file_index.length != 0){
-        $('#edit-image-box__container').hide();
+        $('#delete-image').hide();
         $('#edit-image-box__container').before(buildFileField(file_index, file_url))
         file_index.shift();
       }
     })
+
+
     $('#edit-image-box-1').on('click', '.item-image__operetion--delete', function(){
       let delete_image_id = parseInt($(this).attr('data-index'))
 

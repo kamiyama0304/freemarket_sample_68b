@@ -28,11 +28,10 @@ class ProductsController < ApplicationController
   end
 
   def update
-    
     @categories = Category.where(ancestry: nil)
-    
-    if @product.update(product_params)
-      redirect_to product_path
+    @product = Product.find(params[:id])
+    if @product.update(destroy_params)
+      redirect_to root_path
     else
       render :edit
     end
@@ -64,7 +63,6 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    # binding.pry
     @product = Product.find(params[:id])
   end
 

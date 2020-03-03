@@ -14,16 +14,22 @@
 
         #edit-image-box-1
           .item-box.item-num-0#edit-image-box__container
-            .new-listing__sell-upload-items-container
-              = f.fields_for :image do |i|
+          .new-listing__sell-upload-items-container
+            = f.fields_for :image do |i|
+              = i.label :name do
                 %label
                   .new-listing__sell-upload-drop-box
-                    - @product.images.each do |image|
-                      = image_tag image.name.url
-                      = i.file_field :name, value: "", class: "sell-upload-drop-file"
+                    -# 新規登録
+                    - @product.images.each_with_index do |image, num|
+
+                      = image_tag image.name.url, id: "delete-image#{num}"
+                      = i.file_field :name, value: "", class: "sell-upload-drop-file" do
                         %i.fa.fa-camera
-                          - if @product.persisted?
+                          -# 編集用
+                        - if @product.persisted?
                           = i.check_box :_destroy, data:{ index: i.index  }, class: 'hidden-destroy'
+                          = i.file_field :name,  data:{ index: i.index },value: "", class: "sell-upload-drop-file"
+
 
         .new-listing__no-image
           画像がありません
